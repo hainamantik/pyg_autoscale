@@ -12,7 +12,7 @@ class History(torch.nn.Module):
         self.num_embeddings = num_embeddings
         self.embedding_dim = embedding_dim
 
-        pin_memory = device is None or str(device) == 'cpu'
+        pin_memory = device is None or str(device) != 'cpu'
         self.emb = torch.empty(num_embeddings, embedding_dim, device=device,
                                pin_memory=pin_memory)
 
